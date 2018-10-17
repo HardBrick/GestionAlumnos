@@ -1,0 +1,37 @@
+﻿@model GestionAlumnos.Models.AlumnoModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div>
+                <label>@Html.LabelFor(model => model.rut, htmlAttributes: new { @class = "control-label col-md-2" })</label>
+                <input name="rut" id="rut" value="@Model.rut" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Buscar" class="btn btn-default" />
+                </div>
+            </div>
+        }
+
+        <div>
+            @Html.ActionLink("Volver", "Index", "Home")
+
+        </div>
+    </div>
+</body>
+</html>
