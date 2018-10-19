@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Repositorio
 {
-    class DataAlumno
+    public class DataAlumno
     {
         public static string rut { get; set; }
         public static string nombre { get; set; }
@@ -14,5 +14,7 @@ namespace Repositorio
         public static int edad { get; set; }
         public static int sexo { get; set; }
 
+        
+        
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Repositorio
 {
-    class RPAlumno
+    public class RPAlumno
     {
-        public bool Crear(Entidades.Alumno alumno)
+        public bool Registrar(Entidades.Alumno alumno)
         {
             DataAlumno.rut = alumno.rut;
             DataAlumno.nombre = alumno.nombre;
@@ -21,21 +21,22 @@ namespace Repositorio
 
         public Entidades.Alumno Buscar(string rut)
         {
-            Entidades.Alumno alumno = new Entidades.Alumno();
-            if (rut == DataAlumno.rut)
-            {
-                alumno = new Entidades.Alumno
+            if (!string.IsNullOrEmpty(rut)) { 
+                Entidades.Alumno alumno = new Entidades.Alumno();
+                if (rut.Equals(DataAlumno.rut))
                 {
-                    rut = DataAlumno.rut,
-                    nombre = DataAlumno.nombre,
-                    apellidos = DataAlumno.apellidos,
-                    edad = DataAlumno.edad,
-                    sexo = DataAlumno.sexo
-                };
+                    alumno = new Entidades.Alumno
+                    {
+                        rut = DataAlumno.rut,
+                        nombre = DataAlumno.nombre,
+                        apellidos = DataAlumno.apellidos,
+                        edad = DataAlumno.edad,
+                        sexo = DataAlumno.sexo
+                    };
 
-                return alumno;
+                    return alumno;
+                }
             }
-
             return null;
         }
 

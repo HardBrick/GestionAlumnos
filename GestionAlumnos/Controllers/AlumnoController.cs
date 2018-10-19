@@ -43,7 +43,7 @@ namespace GestionAlumnos.Controllers
             Negocio.GestorAlumno gestorAlumno = new Negocio.GestorAlumno();
             bool result = gestorAlumno.Registrar(alumno);
 
-            ViewBag.Mensaje = result ? "Producto Creado" : "Error al Crear Producto";
+            ViewBag.Mensaje = result ? "Alumno Registrado" : "Error al Registrar Alumno";
 
             return View(alumnoModel);
         }
@@ -61,7 +61,7 @@ namespace GestionAlumnos.Controllers
 
             Entidades.Alumno alumno = gestorAlumno.Buscar(model.rut);
 
-            if (alumno.rut != null)
+            if (alumno != null)
             {
                 return RedirectToAction("Detalle", alumno);
             }
@@ -122,6 +122,7 @@ namespace GestionAlumnos.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Eliminar(string rut)
         {
             Negocio.GestorAlumno gestorAlumno = new Negocio.GestorAlumno();
@@ -152,7 +153,7 @@ namespace GestionAlumnos.Controllers
 
             if (result)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View();
