@@ -18,10 +18,9 @@ namespace Negocio
             return new Repositorio.RPAlumno().Buscar(rut);
         }
 
-        public bool Modificar(Entidades.Alumno alumno)
+        public Entidades.Alumno Modificar(Entidades.Alumno alumno)
         {
-
-            return false;
+            return new Repositorio.RPAlumno().Actualizar(alumno);
         }
 
         public bool Eliminar(string rut)

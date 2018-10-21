@@ -14,9 +14,7 @@ namespace GestionAlumnos.Controllers
         {
             return View();
         }
-
-        //GET AND POST FOR EACH METHOD
-
+        
         //GET
         public ActionResult Registrar()
         {
@@ -74,7 +72,7 @@ namespace GestionAlumnos.Controllers
             return View(model);
         }
 
-        public ActionResult Editar(string rut)
+        public ActionResult Modificar(string rut)
         {
             Negocio.GestorAlumno gestorAlumno = new Negocio.GestorAlumno();
 
@@ -88,7 +86,7 @@ namespace GestionAlumnos.Controllers
                 sexo = alumno.sexo
             };
 
-            if (alumno.rut != null)
+            if (alumno != null)
             {
                 return View(alumnoModel);
             }
@@ -97,7 +95,7 @@ namespace GestionAlumnos.Controllers
         }
 
         [HttpPost]
-        public ActionResult Editar(Models.AlumnoModel model)
+        public ActionResult Modificar(Models.AlumnoModel model)
         {
             AlumnoModel alumnoModel = new AlumnoModel();
             alumnoModel = model;
@@ -112,9 +110,9 @@ namespace GestionAlumnos.Controllers
             };
 
             Negocio.GestorAlumno gestorAlumno = new Negocio.GestorAlumno();
-            alumno = gestorAlumno.Buscar(alumno.rut);
+            alumno = gestorAlumno.Modificar(alumno);
 
-            if (alumno.rut != null)
+            if (alumno != null)
             {
                 return RedirectToAction("Detalle", alumno);
             }

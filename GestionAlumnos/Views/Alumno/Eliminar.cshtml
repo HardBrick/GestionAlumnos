@@ -54,7 +54,9 @@
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.sexo)
+                <span>
+                    @(Model.sexo == 1 ? "Masculino" : "Femenino" )
+                </span>
             </dd>
 
         </dl>
@@ -63,7 +65,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index", "Home")
+            @Html.ActionLink("Volver", "Index", "Home")
         </div>
     }
 </div>
